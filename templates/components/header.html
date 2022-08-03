@@ -1,0 +1,41 @@
+<nav class="fixed w-full bottom-0 top-auto z-10 sm:top-0 sm:bottom-auto backdrop-blur-sm" id="navbar-sticky">
+    <div class="py-2 c-blur">
+        <div class="container">
+            <div class="flex justify-between content-center pr-3">
+                <div class="flex flex-1 content-center">
+                    <div class=" grid content-center">
+                        <span class="switch">
+                            <input type="checkbox" id="themeToggle" />
+                            <span class="slider"></span>
+                        </span>
+                    </div>
+                    <a class="content-center mx-2 hidden sm:grid" href="instagram.com/amartislab"><i class="fab fa-instagram"></i></a>
+                    <a class="content-center mx-2 hidden sm:grid" href="facebook.com/amartislab"><i class="fab fa-facebook"></i></a>
+                    <a class="content-center mx-2 hidden sm:grid" href="twitter.com/amartislab"><i class="fab fa-twitter"></i></a>
+                    <a class="content-center mx-2 hidden sm:grid" href="wa.me"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="">
+                    <a class="navbar-brand" href="/">
+                        <svg viewBox="0 0 272 270" class=" w-14 xl:w-16">
+                            <path class="st0 dark:stroke-white"
+                                d="M154,178h105.77c4.68-13.47,7.23-27.94,7.23-43c0-66.24-49.17-120.99-113-129.76V178z" />
+                            <path class="st0 dark:stroke-white"
+                                d="M154,214h-36v-36V70.75L31.89,214.51C55.83,245.81,93.55,266,136,266c42.68,0,80.58-20.41,104.5-52H154z" />
+                            <path class="st0 dark:stroke-white"
+                                d="M115.01,5.68C52.64,15.73,5,69.8,5,135c0,14.89,2.49,29.2,7.07,42.54L115.01,5.68z" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="flex flex-1 justify-end gap-2">
+                    <a href="{% url 'main:home' %}" class="uppercase hidden sm:grid content-center">Home</a>
+                    <a href="{% url 'main:about' %}" class="uppercase hidden sm:grid content-center">About</a>
+                    <a href="{% url 'services:service-list' %}" class="uppercase hidden sm:grid content-center">Services</a>
+                    <a href="{% url 'projects:project-list' %}" class="uppercase hidden sm:grid content-center">Work</a>
+                    <a href="{% url 'contact:contact-page' %}" class="uppercase hidden sm:grid content-center">Contact</a>
+                    <span id="menuToggle" class="uppercase sm:hidden grid content-center"><i
+                            class="fas fa-bars"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

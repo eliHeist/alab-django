@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<!-- hero section -->
+<section class="py-60">
+    <div id="hero"></div>
+	<div class="container grid justify-center">
+		<figure class="mx-auto">
+			<img src="{% static '/img/text-logo.png' %}" alt="Amartislab" class="" />
+		</figure>
+		<p class="lead text-center mx-auto mt-8 max-w-xl">
+			Logos, Adverts, Posters, Websites, Banners, video editing Product visualization, animation,
+			visual effects
+		</p>
+	</div>
+</section>
+<!--end hero-->
+
+<!-- who we are -->
+<section class="py-5 my-40">
+    <h2 class="header-1">Who we are</h2>
+    <div class="container mt-12">
+        <div class="grid md:grid-cols-2 md:grid-rows-2 gap-8">
+            <div class="max-w-xl md:row-span-2 md:ml-auto">
+                <h3 class="header-2">About us</h3>
+                <p class=" mt-8 lead">
+                    Started by Allan Martin Ssebagala, a creative director and brand strategist with a reputation for epic work, Amartislab is a next generation agency delivering brand design and brand marketing solutions. Our agile agency model is built on an extensive network of highly talented strategic and creative professionals who work collaboratively with clients worldwide to meet their business objectives.
+                </p>
+            </div>
+            <div class="max-w-xl">
+                <h3 class="header-2">Our vision</h3>
+                <p class=" mt-8 lead">
+                    To be a place of choice for exellence and inspiration.
+                </p>
+            </div>
+            <div class="max-w-xl">
+                <h3 class="header-2">Our Mission</h3>
+                <p class=" mt-8 lead">
+                    Creating inspirational and innovative designs to connect clients and customers.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- what we do -->
+<section class="py-5 my-40">
+    <h2 class="header-1">What do we do</h2>
+    <div class="mt-12 pr-3">
+        <div class="grid grid-cols-2">
+            <div class=" pr-3">
+                <video src="{% static 'video/aboutus.m4v' %}"></video>
+            </div>
+            <div>
+                <p class="lead max-w-xl">
+                    Started by Alfredo Muccino, a creative director and brand strategist with a reputation for award-winning work, Solid is a next generation agency delivering brand strategy, brand design and brand marketing solutions. Our agile agency model is built on an extensive network of highly talented strategic and creative professionals who work collaboratively with clients worldwide to meet their business objectives.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- our approach -->
+<section class="py-5 my-40">
+    <h2 class="header-1">How we approach projects</h2>
+    <div class="mt-12">
+        <div class="grid sm:grid-cols-1 md:grid-cols-2 my-40">
+            <div>
+                <div class=" max-w-lg ml-auto mr-10">
+                    <h3 class="header-2">Fast Execution</h3>
+                <p class="lead">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem cupiditate esse dolore dicta perferendis corporis officia totam non odit. Eveniet reiciendis porro dignissimos iste minus doloribus repellendus quisquam vero non!
+                </p>
+                </div>
+            </div>
+            <div>
+                <img src="/img/excecution/people.png" alt="Collaborative excecution" class="w-full h-full object-contain">
+            </div>
+        </div>
+        <div class="grid sm:grid-cols-1 md:grid-cols-2 my-40">
+            <div>
+                <img src="/img/excecution/people.png" alt="Collaborative excecution" class="w-full h-full object-contain">
+            </div>
+            <div>
+                <div class=" max-w-lg mr-auto ml-10">
+                    <h3 class="header-2">Satisfaction guarantee</h3>
+                <p class="lead">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem cupiditate esse dolore dicta perferendis corporis officia totam non odit. Eveniet reiciendis porro dignissimos iste minus doloribus repellendus quisquam vero non!
+                </p>
+                </div>
+            </div>
+        </div>
+        <div class="grid sm:grid-cols-1 md:grid-cols-2 my-40">
+            <div>
+                <div class=" max-w-lg ml-auto mr-10">
+                    <h3 class="header-2">Creative design</h3>
+                <p class="lead">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem cupiditate esse dolore dicta perferendis corporis officia totam non odit. Eveniet reiciendis porro dignissimos iste minus doloribus repellendus quisquam vero non!
+                </p>
+                </div>
+            </div>
+            <div>
+                <img src="/img/excecution/people.png" alt="Collaborative excecution" class="w-full h-full object-contain">
+            </div>
+        </div>
+        <div class="grid sm:grid-cols-1 md:grid-cols-2 my-40">
+            <div>
+                <img src="/img/excecution/people.png" alt="Collaborative excecution" class="w-full h-full object-contain">
+            </div>
+            <div>
+                <div class=" max-w-lg mr-auto ml-10">
+                    <h3 class="header-2">Collaborative design</h3>
+                <p class="lead">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem cupiditate esse dolore dicta perferendis corporis officia totam non odit. Eveniet reiciendis porro dignissimos iste minus doloribus repellendus quisquam vero non!
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <Poly/>
+    </div>
+</section>
+{% endblock content %}
+    

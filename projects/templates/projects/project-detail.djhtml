@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load tailwind_filters %}
+
+
+{% block styles %}
+{% endblock styles %}
+
+
+{% block content %}
+<i class="fa fa-star-half-empty" aria-hidden="true"></i>
+{% endblock content %}
+
+
+{% block scripts %}
+{% endblock scripts %}

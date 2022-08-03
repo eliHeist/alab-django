@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load tailwind_filters %}
+
+
+{% block styles %}
+{% endblock styles %}
+
+
+{% block content %}
+<section class="py-60">
+    <h1 class="uppercase text-7xl font-bold text-center">Our work</h1>
+</section>
+
+<section class="py-5 my-40">
+    <div class="container">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
+            
+            {% for project in projects %}
+                <article>
+                    <figure class="">
+                        <img src="{{ project.thumbnail.url }}" alt="Project name" class=" object-cover aspect-square">
+                        <figcaption class=" py-2">
+                            <h3 class=" font-semibold"><a href="{% url 'projects:project-detail' project.pk %}" class="link">{{ project.name }}</a></h3>
+                        </figcaption>
+                    </figure>
+                </article>
+            {% endfor %}
+                
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
+
+{% block scripts %}
+{% endblock scripts %}

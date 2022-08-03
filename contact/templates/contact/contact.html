@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load tailwind_filters %}
+
+
+{% block styles %}
+<style>
+	
+</style>
+
+{% endblock styles %}
+
+
+{% block content %}
+<section class="">
+	<div class="container-fluid">
+		<div class="grid grid-cols-1 md:grid-cols-2 min-h-screen">
+			<div class="pt-32 grid content-center">
+				<div class="ml-auto w-fit p-8 max-w-[1300px]">
+					<div id="hero" class="hidden"></div>
+					<p class="text-2xl py-2 font-light">
+						We highly want, love and anticipate to hear from you about our work, company, website or your projects. <br> So get in touch with us on the platforms indicated below 
+					</p>
+					<p class="text-xl py-2 font-light">
+						or write to us here
+					</p>
+					<ol class="text-xl mt-4 font-light">
+						<li class="my-4"><i class="fas fa-phone mr-4" aria-hidden="true"></i>+256 760 971 269</li>
+						<li class="my-4"><i class="fas fa-envelope mr-4"></i>info@amartislab.com</li>
+						<!-- <li class="my-1"><i class="fas fa-community mr-4"></i>@amartislab</li> -->
+					</ol>
+					<div class="flex my-4 text-xl">
+						<a class="content-center mr-2 hover:text-pink-500" href="instagram.com/amartislab"><i class="fab fa-instagram"></i></a>
+						<a class="content-center mx-2 hover:text-blue-700" href="facebook.com/amartislab"><i class="fab fa-facebook"></i></a>
+						<a class="content-center mx-2 hover:text-blue-500" href="twitter.com/amartislab"><i class="fab fa-twitter"></i></a>
+						<a class="content-center mx-2 hover:text-green-500" href="wa.me"><i class="fab fa-whatsapp"></i></a>
+						<a class="content-center mx-2 mr-4 hover:text-primary-500" href="mailto:info.amartislan.com"><i class="fas fa-envelope"></i></a>@amartislab
+					</div>
+				</div>
+			</div>
+			<!-- form -->
+			<div class="pt-32 dark:bg-dark-300 bg-white grid content-center">
+				<div class=" p-12 h-full">
+					<form method="post" class=" max-w-[1500px]" x-data="{
+						post_message: false,
+						mail: {
+							name: '',
+							email: '',
+							phone: '',
+							message: '',
+						},
+						csrf() {
+							token = document.getElementById('token').firstElementChild.value;
+							return token;
+						 },
+						async sendMail() {
+							this.status = 'sending...'
+							await fetch(`{% url 'contact:send-mail' %}`, {
+								method: 'POST',
+								headers: {
+								   Accept: 'application/json',
+								   'Content-Type': 'application/json',
+								   'X-CSRFToken': this.csrf(),
+								},
+								body: JSON.stringify(this.mail),
+							 }).then((response) => response.json())
+									.then((json) => {
+										console.log(json)
+										if (json.code === 'success') {
+											console.log(json.code)
+										// clear fields
+											this.mail.name = ''
+											this.mail.email = ''
+											this.mail.phone = ''
+											this.mail.message = ''
+											this.post_message = true
+										}
+									});
+							
+						 }
+					}" @submit.prevent="sendMail()">
+						<div id="token">{% csrf_token %}</div>
+                        <div class="mb-8">
+                            <div class="input-group">
+                                <input x-model="mail.name" required type="text" name="your_name" class="input dark:bg-dark-100 dark:text-white" />
+                                <label class="user-label dark:text-white" for="your_name">Name</label>
+                            </div>
+                        </div>
+                        <div class="grid lg:grid-cols-2 gap-4">
+                            <div class="input-group">
+                                <input x-model="mail.email" required type="email" name="your_email" class="input dark:bg-dark-100 dark:text-white" />
+                                <label class="user-label dark:text-white" for="your_email">Email</label>
+                            </div>
+                            <div class="input-group">
+                                <input x-model="mail.phone" required type="tel" name="your_phone" class="input dark:bg-dark-100 dark:text-white" />
+                                <label class="user-label dark:text-white" for="your_phone">Phone</label>
+                            </div>
+                        </div>
+                        <div class="my-8">
+                            <div class="input-group">
+                                <textarea x-model="mail.message" required name="your_message" class="input dark:bg-dark-100 dark:text-white" rows="10"></textarea>
+                                <label class="user-label dark:text-white" for="your_message">Message</label>
+                            </div>
+                        </div>
+                        <div class="mt-8 flex">
+                            <button type="submit" class=" bg-primary-900 py-4 px-8 hover:bg-primary-500 font-semibold text-xl"><i class="fab fa-telegram mr-3"></i>Send</button>
+							<span class="my-auto uppercase ml-8 text-white font-bold" x-show="post_message" x-cloak>
+								<i class="fa fa-check text-green-400 mr-4" aria-hidden="true"></i> Success
+							</span>
+                        </div>
+                    </form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock content %}
+
+
+{% block scripts %}
+{% endblock scripts %}

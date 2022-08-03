@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <!-- hero section -->
+<section class="bg-white dark:bg-black">
+    <div id="hero"></div>
+    <div class="container grid justify-center py-72">
+        <h1 class="uppercase text-7xl font-bold text-center">Your Brand, Your Story</h1>
+        <div class="grid sm:grid-cols-3 gap-4 mx-auto text-center mt-10">
+            <PolyButton text="Services" link="/services" cls="primary"/>
+            <PolyButton text="Work" link="/work"/>
+            <PolyButton text="Contact" link="/contact"/>
+        </div>
+    </div>
+</section> <!--end hero-->
+
+<!-- about -->
+<section class="py-5 my-40">
+        <h2 class="uppercase text-6xl font-bold text-center">Who are we?</h2>
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-2 mt-12 container">
+        <!-- achievements -->
+        <div class="flex justify-end">
+            <div class="grid grid-cols-2 gap-4 w-full">
+                <!-- cards here -->
+                <Counter number="20" text="Satisfied Customers"/>
+                <Counter number="50" text="Designs Made"/>
+                <Counter number="20" text="Videos Produced"/>
+                <Counter number="20" text="Satisfied Customers"/>
+            </div>
+        </div>
+        <!-- about us -->
+        <div>
+            <p class="sm:ml-6 mt-8 max-w-xl lead text-center sm:text-left">
+                Amarti's lab is a next generation agency delivering brand design, web development, animation
+				and visual effects. Our agile agency model is built on an extensive network of highly
+				talented strategic and creative professionals who work collaboratively with clients
+				worldwide to meet their business objectives.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- What we do -->
+<section class="py-5 my-40">
+    <h2 class="header-1">What do we do?</h2>
+    <div class="container mt-12">
+        <!-- cards go here -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 relative">
+            <div class="card bg-green-900 before:bg-green-100 ">
+                <h3 class=" font-semibold text-2xl text-green-100">Web Development</h3>
+                <p class=" font-light mt-4 text-green-100">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla est fugit ipsa quo doloremque saepe id.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- 
+    hover:before:-z-10  before:-z-10  before:top-0 before:left-0 before:blur-lg before:opacity-80 before:translate-x-0 before:translate-y-0 before:transition-all hover:before:opacity-20 hover:before:-translate-x-8 hover:before:translate-y-10
+ -->
+
+<!-- featured projects -->
+<section class="py-5 my-40">
+    <h2 class="header-1">Our featured work</h2>
+    <div class="container mt-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            
+            {% for work in works %}
+                <div class=" aspect-square">
+                    <img src="{{ work.project.thumbnail.url }}" alt="{{ work.project.name }}" class=" object-cover h-full w-full">
+                </div>
+            {% endfor %}
+                
+        </div>
+    </div>
+</section>
+
+<!-- clients -->
+<section class="py-5 my-40">
+    <h2 class="header-1">Our notable clients</h2>
+    <div class="container mt-12">
+        <div class="grid grid-cols-2 xl:grid-cols-5 gap-4 justify-center">
+            
+            {% for client in clients %}
+                <figure class=" h-28 aspect-video grid place-content-center p-3">
+                    <img src="{{ client.image.url }}" alt="{{ client.name }}" class=" fluid">
+                </figure>
+            {% endfor %}
+                
+        </div>
+    </div>
+</section>
+
+<!-- call to action -->
+<section>
+    <div class="container">
+        <div class=" bg-primary-900 p-16 rounded-tr-[5rem] rounded-bl-[5rem]">
+            <div class="grid sm:grid-cols-2">
+                <figure></figure>
+                <div>
+                    <h2>Ready to get in touch with us</h2>
+                    <button class="text-primary-900 py-4 px-8 bg-white rounded-tr-xl rounded-bl-xl font-bold text-xl">
+                        Send us a message
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+    

@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* logo */
+.st0{
+    @apply fill-primary-500 stroke-black stroke-10 hover:stroke-0;
+    /* stroke:#ffffff;stroke-width:10;stroke-miterlimit:10; */
+}
+/* end logo */
+.container{
+    @apply mx-auto;
+}
+.container-full{
+    max-width: 2000px;
+    @apply mx-auto;
+}
+.lead{
+    @apply text-xl xl:text-2xl font-light dark:text-gray-400 leading-7;
+}
+.header-1{
+    @apply uppercase text-6xl font-bold text-center;
+}
+.header-2{
+    @apply uppercase text-3xl font-semibold
+}
+.fluid{
+    @apply max-h-full max-w-full object-scale-down
+}
+
+/* link style */
+.link{
+    margin-left: -1rem;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    font-size: 1.2rem;
+    @apply text-primary-500 font-semibold p-4 relative mt-4
+}
+.link:before, .link:after{
+    content: '';
+    border-radius: .3em;
+    bottom: .3em;
+    transition: transform .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    @apply absolute border-b-4 border-solid border-primary-500
+}
+.link:before{
+    transform-origin: left;
+    width: 1em;
+}
+.link:hover:before{
+    transform: scaleX(0.3);
+}
+.link:after{
+    width: 82%;
+    left: 1.7em;
+    transform: translateX(110%);
+}
+.link:hover:after{
+    transform: translateX(0);
+}
+
+/*  */
+/* From uiverse.io by @alexruix */
+.input-group {
+    position: relative;
+}
+
+.input-group .input {
+    @apply text-base p-4 text-black bg-light-200;
+    border-radius: 1rem;
+    transition: border 150ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    width: 100%;
+}
+
+.input-group .user-label {
+    @apply absolute text-black;
+    left: 15px;
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-group .input:focus,
+.input-group .input:valid{
+    @apply border border-solid border-primary-900;
+    outline: none;
+}
+
+.input-group .input:focus ~ label,
+.input-group .input:valid ~ label{
+    @apply text-white font-semibold bg-primary-900;
+    transform: translateY(-50%) scale(0.8);
+    padding: 0 0.2em;
+}
+
+/* cards */
+.card{
+    @apply relative p-8 rounded-lg text-xl;
+    transition: transform 350ms ease-in-out;
+}
+.card::before{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0;
+    z-index: -1;
+    filter: blur(16px);
+    opacity: .5;
+    transform: translateX(0) translateY(0);
+    transition: transform 350ms ease-in-out;
+    transition: opacity 350ms ease-in-out;
+}
+.card:hover{
+    transform: translate3d(2rem 2rem 2rem);
+    z-index: 2;
+}
+.card:hover:before{
+    z-index: -1;
+    opacity: .9;
+    transform: translate3d(2rem 2rem 0);
+}

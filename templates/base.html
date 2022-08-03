@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" /> 
+		<link rel="icon" href="{% static 'img/favicon.png' %}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- %sveltekit.head% -->
+		<!-- <script src="https://kit.fontawesome.com/09c907f758.js" crossorigin="anonymous"></script> -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'fontawesome-free-6.1.1-web\css\all.min.css' %}">
+        <script defer src="{% static 'lib/alpine.js' %}"></script>
+        
+        {% block styles %}
+        {% endblock styles %}
+		<style>
+			[x-cloak]{
+				display: none;
+			}
+			/* From uiverse.io by @satyamchaudharydev */
+			/* The switch - the box around the slider */
+			.switch {
+				/* --moon-mask: ; */
+				font-size: 17px;
+				position: relative;
+				display: inline-block;
+				width: 3.5em;
+				height: 2em;
+				transform: scale(0.7);
+			}
+		
+			/* Hide default HTML checkbox */
+			.switch input {
+				opacity: 0;
+				width: 0;
+				height: 0;
+			}
+		
+			/* The slider */
+			.slider {
+				position: absolute;
+				cursor: pointer;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: #f4f4f5;
+				transition: 0.4s;
+				border-radius: 30px;
+			}
+		
+			.slider:before {
+				position: absolute;
+				content: '';
+				height: 1.4em;
+				width: 1.4em;
+				border-radius: 20px;
+				left: 0.3em;
+				bottom: 0.3em;
+				background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+				transition: 0.4s;
+			}
+		
+			input:checked + .slider {
+				background-color: #303136;
+			}
+		
+			input:checked + .slider:before {
+				transform: translateX(1.5em);
+				background: #303136;
+				box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -5px 0 0 #a3dafb;
+			}
+		</style>
+	</head>
+	<body class="dark:text-white dark:bg-dark-100 bg-light-100 xl:text-lg font-body">
+		{% include 'components/header.html' %}
+		<div class="">
+            {% block content %}
+            {% endblock content %}
+        </div>
+		{% include 'components/footer.html' %}
+
+		<!-- <script src="%sveltekit.assets%/js/theme.js"></script> -->
+        <script src="{% static 'js/main.js' %}"></script>
+        
+        {% block scripts %}
+        {% endblock scripts %}
+	</body>
+</html>
